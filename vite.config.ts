@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
 
   return {
-    base: "/3DP/", // ✅ IMPORTANT (GitHub repo name)
+    base: "/3DP/", // ✅ REQUIRED for GitHub Pages
 
     plugins: [react(), tailwindcss()],
 
@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
 
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(), // ✅ FIXED (removed __dirname issue)
       },
     },
 
